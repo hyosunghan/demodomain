@@ -1,0 +1,51 @@
+{
+  "x-metadata": {
+    "command": {
+      "logicType": "DMN",
+      "logicPath": "",
+      "entity": "DemoEntity",
+      "logicParams": [
+        {
+          "name": "scene",
+          "mappingFile": "MAP000161.jslt"
+        }
+      ],
+      "logicResults": [
+        {
+          "path": "/target",
+          "mappingFile": "MAP000169.jslt"
+        }
+      ],
+      "idPath": "/scene/identity",
+      "autoCreate": true,
+      "models": [
+        {
+          "model": "DemoEntityIdentity",
+          "concept": "id",
+          "protocol": "DL000038.json",
+          "requestMappingFile": "MAP000174.jslt",
+          "batchEvent": false,
+          "batchFlag": true
+        },
+        {
+          "model": "DemoEntityName",
+          "concept": "name"
+        }
+      ]
+    }
+  },
+  "openapi": "3.0.3",
+  "info": {
+    "x-aggregation": "demoaggrcode",
+    "title": "DemoBusinessesLogic",
+    "version": "1.0.0"
+  },
+  "components": {},
+  "servers": [
+    {
+      "x-host": "demoproduct.demodomain.democontext",
+      "url": "/demodomain/democontext/demoaggrcode"
+    }
+  ],
+  "paths": {}
+}

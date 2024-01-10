@@ -1,0 +1,13 @@
+pluginManagement {
+    plugins {
+        id 'io.micrc.core.gradle.plugin' version 'test'
+    }
+    repositories {
+        mavenLocal()
+        maven {
+            url "https://repo.it.ouxxa.com/repository/maven-hub/"
+        }
+    }
+}
+
+rootProject.name = 'democontext-service'

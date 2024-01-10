@@ -1,0 +1,95 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "x-aggregation": "ddd",
+    "title": "DemoDerivationsLogic",
+    "version": "1.0.0"
+  },
+  "components": {
+
+  },
+  "servers": [
+    {
+      "x-host": "aaa.bbb.ccc",
+      "url": "/bbb/ccc/ddd"
+    }
+  ],
+  "paths": {
+    "/dl001": {
+      "post": {
+        "operationId": "dl001",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InitScenes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Scenes"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "mock": {
+                    "value": {
+                      "code": "200",
+                      "data": [
+                        {
+                          "identity": {
+                            "id": 111
+                          },
+                          "sceneName": {
+                            "sceneName": "string"
+                          },
+                          "sceneCode": {
+                            "sceneCode": "string"
+                          },
+                          "version": 0
+                        }
+                      ]
+                    }
+                  },
+                  "default": {
+                    "value": {
+                      "code": "200",
+                      "data": [
+                        {
+                          "identity": {
+                            "id": 111
+                          },
+                          "sceneName": {
+                            "sceneName": "string"
+                          },
+                          "sceneCode": {
+                            "sceneCode": "string"
+                          },
+                          "version": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-demo-entity-0.0.1
+      author: hyosunghan
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            - tableExists:
+                tableName: demo_entity
+      changes:
+        - createTable:
+            tableName: demo_entity
+            remarks: demo_entity
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT(11)
+                  remarks: id of demo entity
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: demo-entity-pk
+              - column:
+                  name: name
+                  type: varchar(255)
+                  remarks: name

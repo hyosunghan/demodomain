@@ -1,0 +1,119 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "DemoAggrName schema",
+    "version": "1.0.0"
+  },
+  "paths": {},
+  "security": [
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    },
+    "schemas": {
+      "DemoEntity": {
+        "type": "object",
+        "x-model-type": "entity",
+        "x-query-rules": [{
+          "name": "findByDemoEntityIdentity",
+          "paramTypes": ["#/components/schemas/DemoEntityIdentity"],
+          "resultType": "#/components/schemas/DemoEntity"
+        }],
+        "x-one-many": "#/components/schemas/DemoEntity2",
+        "properties": {
+          "identity": {
+            "$ref": "#/components/schemas/DemoEntityIdentity"
+          },
+          "name": {
+            "$ref": "#/components/schemas/DemoEntityName"
+          },
+          "version": {
+            "x-data-type": "version",
+            "type": "integer",
+            "description": "版本号"
+          }
+        },
+        "description": "平台"
+      },
+      "DemoEntityIdentity": {
+        "type": "object",
+        "x-model-type": "valobj",
+        "x-data-type": "identity",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "description": "名称"
+      },
+      "DemoEntityName": {
+        "type": "object",
+        "x-model-type": "valobj",
+        "x-data-type": "embedded",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "description": "名称"
+      },
+
+
+
+
+
+
+      "DemoEntity2": {
+        "type": "object",
+        "x-model-type": "entity",
+        "x-many-one": "#/components/schemas/DemoEntity",
+        "properties": {
+          "identity": {
+            "$ref": "#/components/schemas/DemoEntity2Identity"
+          },
+          "name": {
+            "$ref": "#/components/schemas/DemoEntity2Name"
+          },
+          "version": {
+            "x-data-type": "version",
+            "type": "integer",
+            "description": "版本号"
+          }
+        },
+        "description": "平台"
+      },
+      "DemoEntity2Identity": {
+        "type": "object",
+        "x-model-type": "valobj",
+        "x-data-type": "identity",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "description": "名称"
+      },
+      "DemoEntity2Name": {
+        "type": "object",
+        "x-model-type": "valobj",
+        "x-data-type": "embedded",
+        "properties": {
+          "platformName": {
+            "type": "string"
+          }
+        },
+        "description": "名称"
+      }
+    }
+  }
+}

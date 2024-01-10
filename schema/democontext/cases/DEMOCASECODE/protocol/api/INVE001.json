@@ -1,0 +1,19 @@
+{
+  "x-metadata": {
+
+  },
+  "openapi": "3.0.3",
+  "info": {
+    "x-aggregation": "demoaggrcode",
+    "title": "DemoPresentationsLogic",
+    "version": "1.0.0"
+  },
+  "components": {},
+  "servers": [
+    {
+      "x-host": "demoproduct.demodomain.democontext",
+      "url": "/demodomain/democontext/demoaggrcode"
+    }
+  ],
+  "paths": {}
+}
