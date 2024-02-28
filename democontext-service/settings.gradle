@@ -1,6 +1,6 @@
 pluginManagement {
     plugins {
-        id 'io.micrc.core.gradle.plugin' version 'test'
+        id 'io.micrc.core.gradle.plugin' version 'v0.0.64'
     }
     repositories {
         mavenLocal()

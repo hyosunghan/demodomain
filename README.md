@@ -1,24 +1,26 @@
 # 1.目录结构
     上下文-logic
     上下文-service
-    schema
-        上下文名称
+    schema                                      模式文件，即元数据目录，schema分支只有该目录
+        上下文名称                               （上下文-service编译时，若当前分支不属于main,master,dev,develop,main,hotfix,schema，则会从schema分支获取同名目录覆盖到当前目录） 
             aggregations
                 聚合编号
                     changelog
                         版本号
-                            db1.yaml            数据库升级文件（可多个）
+                            db1.yaml            数据库升级文件（可多个）<https://docs.liquibase.com/start/get-started/liquibase-yaml.html>
+
                     mapping
-                        map1.jslt               模型映射文件（可多个）
+                        map1.jslt               模型映射文件（可多个）<https://github.com/schibsted/jslt>
+
                     rule
                         business
-                            dmn1.dmn            业务规则文件（可多个）
+                            dmn1.dmn            业务规则文件（可多个）<https://sandbox.kie.org/0.23.0/#/eebbf0fc-55e6-4fdc-98b9-6211b4df7ed0/file/Sample.dmn>
                         technology
                             script1.groovy      技术规则文件（可多个）
                             route1.xml
                             dmn1.dmn
                             map1.jslt
-                    model.json                  模型说明文件
+                    model.json                  模型说明文件 <https://openapi.apifox.cn>
             cases
                 用例编号
                     protocol
