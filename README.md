@@ -85,7 +85,7 @@
             "runner": {
                 "runnerOrder": "",                                  // RUNNER类型端口   执行器顺序
             },
-            "events": [                                             // 发送事件
+            "events": [
                 {
                     "event": "BusinessAccountNeedRenewalEvent",     // 发送事件名称
                     "topic": "BusinessAccount",                     // 发送主题名称
@@ -94,7 +94,7 @@
                             "receiver": "xx.x.x",                   // 接收方地址（产品线.子域.上下文）
                             "service": "xxxxxService",              // 接收方服务
                             "mappingFile": "MAP000242.jslt",        // 接收方映射文件
-                            "batchModel": "xx模型",                  // 标记批量接收的模型
+                            "batchModel": "xx模型",                  // 标记批量接收的模型，（为接收方映射文件中的某个值为列表的key，接收方会自动拆分复制重发消费）
                         }
                     ]
                 }
@@ -103,22 +103,22 @@
                 "logicType": "DMN",                                 // 逻辑类型
                 "logicPath": "",                                    // 脚本路径 
                 "entity": "BusinessAccount",                        // 执行实体
-                "logicParams": [                                    // 规则参数
+                "logicParams": [
                     {
                         "name": "businessAccount",                  // 规则入参 
                         "mappingFile": "MAP000004.jslt"             // 规则入参映射
                     }
                 ],
-                "logicResults": [                                   // 规则结果
+                "logicResults": [
                     {
-                        "path": "/target",                          // 规则出参     暂时固定写法/target
+                        "path": "/target",                          // 规则出参
                         "mappingFile": "MAP000005.jslt"             // 规则出参映射  
                     }
                 ],
                 "idPath": "",                                       // ID取值路径 
                 "autoCreate": true,                                 // 执行业务时是否自动创建根实体
                 "repositoryOrder": "",                              // 查找实体顺序
-                "models": [                                         // 命令包含模型
+                "models": [
                     {
                         "model": "ShopProfile",                     // 模型名称
                         "concept": "shopProfile",                   // 属性名称 
@@ -126,12 +126,12 @@
                         "requestMappingFile": "MAP000245.jslt",     // 请求映射 
                         "responseMappingFile": "",                  // 响应映射
                         "order": "",                                // 集成顺序
-                        "batchFlag": false，                        // 集成结果是否为批量
+                        "batchFlag": false,                         // 集成结果是否为批量
                         "ignoreIfParamAbsent": false,               // 可忽略的集成
                     }
                 ]
             },
-            "queries": [                                            // 查询  
+            "queries": [
                 {
                     "entity": "BusinessAccount",                    // 查询实体 
                     "paramMappingFiles": [
@@ -142,7 +142,7 @@
                     "order": ""                                     // 查询顺序
                 }
             ],
-            "integrations": [                                       // 集成 
+            "integrations": [
                 {
                     "protocol": "test.json",                        // 集成协议文件
                     "requestMappingFile": "MAP000250.jslt",         // 请求映射 
@@ -151,55 +151,55 @@
                     "order": ""                                     // 集成顺序
                 }
             ],
-            "generalTechnologies": [                      // 通用技术 
+            "generalTechnologies": [
                 {
-                    "name": "xxx",                            // 模型名称
-                    "paramMappingFile": "MAP0000121.jslt",    // 参数映射文件
-                    "variableMappingFile": "MAP0000121.jslt", // 变量映射文件
-                    "routeContentPath": "a/b",                // 路由内容路径
-                    "routeXmlFilePath": "XXXX.xml",           // 路由文件路径
-                    "order": ""                              // 执行顺序
+                    "name": "xxx",                                  // 模型名称
+                    "paramMappingFile": "MAP0000121.jslt",          // 参数映射文件
+                    "variableMappingFile": "MAP0000121.jslt",       // 变量映射文件
+                    "routeContentPath": "a/b",                      // 路由内容路径
+                    "routeXmlFilePath": "XXXX.xml",                 // 路由文件路径
+                    "order": ""                                     // 执行顺序
                 }
             ],
-            "specialTechnologies": [   // 专用技术           
+            "specialTechnologies": [
                 {
-                    "name": "xxx",        // 模型名称
-                    "paramMappingFile": "MAP0000121.jslt",       // 参数映射文件
-                    "variableMappingFile": "MAP0000121.jslt",    // 变量映射文件
-                    "scriptContentPath": "a/b",                  // 脚本内容路径
-                    "scriptFilePath": "XXXX.xml",                // 脚本文件路径
-                    "technologyType": "",    // DMN,GROOVY,JSLT,ROUTE,AUTHENTICATION,DECERTIFICATION,PBKDF2_ENCRYPT,GENERATE_SALT,GENERATE_VERIFY_CODE,COMPARE_VERIFY_CODE,GET_ACTIVE_PROFILES
-                    "order": ""             // 执行顺序
+                    "name": "xxx",                                  // 模型名称
+                    "paramMappingFile": "MAP0000121.jslt",          // 参数映射文件
+                    "variableMappingFile": "MAP0000121.jslt",       // 变量映射文件
+                    "scriptContentPath": "a/b",                     // 脚本内容路径
+                    "scriptFilePath": "XXXX.xml",                   // 脚本文件路径
+                    "technologyType": "",                           // DMN,GROOVY,JSLT,ROUTE,AUTHENTICATION,DECERTIFICATION,PBKDF2_ENCRYPT,GENERATE_SALT,GENERATE_VERIFY_CODE,COMPARE_VERIFY_CODE,GET_ACTIVE_PROFILES,REPLACE_TEMPLATE_KEY
+                    "order": ""                                     // 执行顺序
                 }
             ]
         },
         "openapi": "3.0.3",
         "info": {
-            "x-aggregation": "aggr000012",      // 所属聚合必须存在  当前用例的
-            "title": "GetBusinessAccountList",  // 业务逻辑/交互逻辑/衍生逻辑 - 英文名称
+            "x-aggregation": "aggr000012",                          // 当前协议文件所属聚合，即集成调用方聚合
+            "title": "GetBusinessAccountList",                      // 逻辑名称
             "version": "1.0.0",
             "x-service": {
-                "permission": "",                // 权限表达式         
-                "customContent": "",             // 服务自定义逻辑
-                "assembler": "MAP000254.jslt"    // 业务逻辑不填写， 交互逻辑/衍生逻辑结果映射      
+                "permission": "",                                   // 权限表达式         
+                "customContent": "",                                // 服务自定义逻辑
+                "assembler": "MAP000254.jslt"                       // 业务逻辑不填写， 交互逻辑/衍生逻辑的结果映射      
             },
             "x-adapter": {
-                "customContent": "",            // 适配器自定义逻辑
-                "requestMappingFile": "",       // 适配器请求映射   
-                "responseMappingFile": ""       // 适配器响应映射     
+                "customContent": "",                                // 适配器自定义逻辑
+                "requestMappingFile": "",                           // 适配器请求映射   
+                "responseMappingFile": ""                           // 适配器响应映射     
             }
         },
         "components": {},
         "servers": [
             {
-                "x-host": "colibri-erp.accounts.accounts",     //必须存在   固定.子域.上下文.
-                "url": "/accounts/accounts/aggr000012"         //必须存在  子域/上下文/所属聚合 当前用例的
+                "x-host": "colibri-erp.accounts.accounts",          // 产品线.子域.上下文（集成提供方）
+                "url": "/accounts/accounts/aggr000012"              // /子域/上下文/所属聚合（集成提供方）
             }
         ],
         "paths": {
-            "/bslg000093": {                  //
-                "post": {                       // 请求方式，固定写法
-                    "operationId": "bslg000093",  //
+            "/bslg000093": {
+                "post": {
+                    "operationId": "bslg000093",
                     "requestBody": {
                         "content": {
                             "application/json": {
@@ -209,21 +209,21 @@
                                     }
                                 },
                                 "schema": {
-                                    "$ref": "#/components/schemas/WindowIdentity"           // 条件模型  #/components/schemas/英文名称 （
+                                    "$ref": "#/components/schemas/WindowIdentity"
                                 },
-                                "x-validator": {  //在项目下 schema/上下文英文名/aggregations/用例所属聚合/model.json中查看上边找到的模型下有无"x-validators"对象，有则需要写"x-validator"对象，没有则不用写"x-validator"对象
-                                    "$ref": "#/components/schemas/[英文名称]/x-validators/normal"
+                                "x-validator": {
+                                    "$ref": "#/components/schemas/WindowIdentity/x-validators/normal"  // 使用模型的校验规则
                                 }
                             }
                         }
                     },
                     "responses": {
                         "default": {
-                            "description": "通道强制同步",    // 描述内容 
+                            "description": "通道强制同步",
                             "content": {
                                 "application/json": {
                                     "examples": {
-                                        "mock": {// 返回的mock数据  
+                                        "mock": {
                                             "value": {
                                                 "code": "200",     
                                                 "message": "",
@@ -245,15 +245,15 @@
                                                 "type": "string"
                                             },
                                             "data": {
-                                                "$ref": "#/components/schemas/ThirdOrderIdListResult"    // 响应模型 #/components/schemas/英文名称
+                                                "$ref": "#/components/schemas/ThirdOrderIdListResult"
                                             },
                                             "message": {
                                                 "type": "string"
                                             }
                                         }
                                     },
-                                    "x-validator": { //在项目下 schema/上下文英文名/aggregations/用例所属聚合/model.json中查看上边找到的模型下有无"x-validators"对象，有则需要写"x-validator"对象，没有则不用写"x-validator"对象
-                                        "$ref": "#/components/schemas/xxxxx/x-validators/normal"
+                                    "x-validator": {
+                                        "$ref": "#/components/schemas/xxxxx/x-validators/normal"       // 使用模型的校验规则
                                     }
                                 }
                             }
