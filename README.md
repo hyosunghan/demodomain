@@ -53,9 +53,10 @@
         x-one-many（成对使用）        entity一对多的多方模型名称	eg:#/components/schemas/Store
         x-many-one（成对使用）        entity多对一的多方模型名称	eg:#/components/schemas/Store
         x-one-many-unidirectional	entity一对多的多方模型名称	eg:#/components/schemas/Store
-        x-query-rules               entity查询规则列表		eg:{name:findByName,paramTypes:["#/components/schemas/Store","integer,int64"],resultType:"#/components/schemas/Store"}
+        x-query-rules               entity查询规则列表		eg:[{name:findByName,paramTypes:["#/components/schemas/Store","integer,int64"],resultType:"#/components/schemas/Store"}]
     /components/schemas/xxxx/properties/xxxx/
         x-data-type                 数据类型，值对象中属性的持久化注解生成		 枚举:text(文本类型)，其他数据类型使用"type"+"format"标明
+        x-aliases                   别名列表，用于说明模型映射  eg:["storeId","storeIdentity"]
     /paths/xxxx/post/requestBody/content/xxxx/
         x-subject-path              标记当前接口参数中登录用户标识位置，适配多接口用户标记位置不一问题	    eg:/userId
 
