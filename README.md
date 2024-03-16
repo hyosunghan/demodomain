@@ -49,7 +49,7 @@
         x-host                      当前协议的服务提供方		eg:colibri-erp.stores.stores
     /components/schemas/xxxx/
         x-model-type                模型类型，需创建对应的Java类文件则使用该属性    枚举:entity(根实体),valobj(值对象)
-        x-data-type                 数据类型，根实体中引用的值对象的持久化注解生成   枚举:version(版本号),identity(版本号),embedded(嵌套),json(JSON),transient(不持久化)
+        x-data-type                 数据类型，根实体中引用的值对象的持久化注解生成   枚举:version(版本号),identity(主键),embedded(嵌套),json(JSON),transient(不持久化)
         x-one-many（成对使用）        entity一对多的多方模型名称	eg:#/components/schemas/Store
         x-many-one（成对使用）        entity多对一的多方模型名称	eg:#/components/schemas/Store
         x-one-many-unidirectional	entity一对多的多方模型名称	eg:#/components/schemas/Store
